@@ -8,10 +8,11 @@ try {
   console.log(`Hello ${nameToGreet}!`);
 
   console.log(`cwd : ${process.cwd()}`);
-  console.log(`dirname : ${console.log(__dirname)}`);
+  console.log(`dirname : ${__dirname}`);
 
   console.log(`ls cwd : ` + execSync(`ls -al ` + process.cwd()).toString());
   console.log(`ls dirname : ` + execSync(`ls -al ` + __dirname).toString());
+  console.log(`ls dirname/../ : ` + execSync(`ls -al ${__dirname}/../`).toString());
 
   console.log(`ls ./ : ${execSync(`ls -al ./`).toString()}`);
   const time = (new Date()).toTimeString();
