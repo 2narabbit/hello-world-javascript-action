@@ -6,9 +6,14 @@ try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
   console.log(`Hello ${nameToGreet}!`);
-  console.log(`dirname : ${console.log(__dirname)}`);
+
   console.log(`cwd : ${process.cwd()}`);
-  console.log(`ls : ${execSync(`ls -al ./`).toString()}`);
+  console.log(`dirname : ${console.log(__dirname)}`);
+
+  console.log(`ls cwd : ` + execSync(`ls -al ` + process.cwd()).toString());
+  console.log(`ls dirname : ` + execSync(`ls -al ` + __dirname).toString());
+
+  console.log(`ls ./ : ${execSync(`ls -al ./`).toString()}`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 } catch (error) {
