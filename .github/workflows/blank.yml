@@ -22,4 +22,4 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - id: data
       run: echo "::set-output name=data::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-    - run: echo ${{steps.data.outputs.data}}
+    - run: echo ${{fromJson(steps.data.outputs.data)}}
